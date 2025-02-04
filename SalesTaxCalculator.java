@@ -11,15 +11,16 @@ public class SalesTaxCalculator {
 
         if (stateName.equalsIgnoreCase("Indiana")) {
             State in = new Indiana(); //make a new state
+            in.setTaxBehavior(new SevenPercent()); //sets tax behavior
             in.showTax(saleAmount); //calculate tax amount
-
         } else if (stateName.equalsIgnoreCase("Alaska")) {
             State al = new Alaska();
+            al.setTaxBehavior(new NoTax());
             al.showTax(saleAmount);
         } else if (stateName.equalsIgnoreCase("Hawaii")) {
             State ha = new Hawaii();
+            ha.setTaxBehavior(new FourFivePercent());
             ha.showTax(saleAmount);
-
             //When running the app two command lines will be passed: the state name and the sale amount
         }
     }
